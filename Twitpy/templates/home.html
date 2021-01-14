@@ -1,25 +1,35 @@
-<html lang="en">
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='main.css')}}" />
-    <title>Hello</title>
+    <title>Shorten URL</title>
+    <link
+        rel="icon"
+        type="image/png"
+        href="{{url_for('static',filename='img/scissors.png')}}"
+    />
+  <link
+    rel="apple-touch-icon"
+    href="{{url_for('static',filename='img/scissors.png')}}"
+  />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-</head>
+    
+    </head>
 
 <body>
     <div class=" container">
         <img src="{{url_for('static',filename='img/scissors.png')}}">
-
+        <h1>shortened_url</h1>
         <form class="form" method="POST" action="">
             {{form.hidden_tag()}}
             <div class="row">
                 <div class="col-sm pt-1" style="text-align: right;">
                     <label for="">{{form.url.label}}</label>
                 </div>
+
                 <div class="input col-sm">
                     {% if form.url.errors %}
                     {{form.url(class="form-control form-control-sm is-invalid ")}}
@@ -33,13 +43,14 @@
                     {%endif%}
                 </div>
 
-                <div class="btn-sm col-sm">
-                    {{form.submit(class="btn-sm")}}
+                <div class="btn-sm col-sm" ">
+                    {{form.submit(class=" btn btn-secondary btn-sm")}} </div>
                 </div>
-
-                {% if new %}
-                <div class="input">
-                    <p>{{url_for('main.redirect_to',short_url=new,_external=True)}}</p>
+            </div>
+            <div class="row">
+                {% if new_url %}
+                <div class="input col-sm" style="margin-top: -25%;">
+                    <p id="shortened_url">{{url_for('main.redirect_to',short_url=new_url,_external=True)}}</p>
                 </div>
                 {% endif %}
             </div>

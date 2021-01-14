@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css2?family=Dosis:wght@500;600&display=swap);
-
 html,
 body {
   background-color: #2a2625 !important;
@@ -10,7 +9,7 @@ body {
 }
 
 .container {
-  margin-top: 20%;
+  margin-top: 15%;
   margin-bottom: 25%;
 }
 input:focus::placeholder {
@@ -50,4 +49,18 @@ img {
   height: 200px;
   margin-left: 45%;
   padding-bottom: 5%;
+}
+
+.btn-secondary {
+  margin-top: 0.9%;
+}
+
+h1 {
+  text-align: center;
+  margin-left: 4%;
+}
+
+p {
+  padding-top: 2%;
+  color: antiquewhite;
 }

@@ -19,5 +19,7 @@ def home():
         link = URL(original_url=form.url.data)
         db.session.add(link)
         db.session.commit()
-        return render_template("home.html", form=form, new=link.shorten_url)
+        return render_template("home.html",
+                               form=form,
+                               new_url=link.shorten_url)
     return render_template("home.html", form=form)
