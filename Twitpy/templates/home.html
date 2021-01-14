@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='main.css')}}" />
+    <title>Hello</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class=" container">
+        <img src="{{url_for('static',filename='img/scissors.png')}}">
+
+        <form class="form" method="POST" action="">
+            {{form.hidden_tag()}}
+            <div class="row">
+                <div class="col-sm pt-1" style="text-align: right;">
+                    <label for="">{{form.url.label}}</label>
+                </div>
+                <div class="input col-sm">
+                    {% if form.url.errors %}
+                    {{form.url(class="form-control form-control-sm is-invalid ")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.url.errors %}
+                        <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{form.url(class="input", placeholder="https://www.example.com")}}
+                    {%endif%}
+                </div>
+
+                <div class="btn-sm col-sm">
+                    {{form.submit(class="btn-sm")}}
+                </div>
+
+                {% if new %}
+                <div class="input">
+                    <p>{{url_for('main.redirect_to',short_url=new,_external=True)}}</p>
+                </div>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+    <footer class="footer">
+        <p class="text-footer">
+            Copyright &copy; 2020-
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+            | Built by
+            <a href="https://daniel-le.com" style="text-decoration: none; color: white">Daniel Le</a>
+        </p>
+    </footer>
+</body>
+
+</html>
