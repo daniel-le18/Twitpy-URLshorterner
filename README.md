@@ -11,7 +11,7 @@ Web-app for URL shorterner
 - Using flask form to take in input from user from HTML
 - Create a random 5 character string along using the input and put them both in the sql database
 - The user now have the link with our domain name +/random string
-- Whenever the user use the shortened link, the website query the database and redirect the user the matching URL of the random string in our database
+- Whenever the user use the shortened link, the website query the database and redirect the user to the matching URL of the random string in our database
 
 # License
 [MIT](https://choosealicense.com/licenses/mit/)
